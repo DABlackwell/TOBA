@@ -1,0 +1,42 @@
+/* 
+    Created on : Mar 28, 2016, 5:26:23 PM
+    Author     : blackwell
+*/
+body {
+    font-family: Gill Sans, Trebuchet, sans-serif;
+    font-size: 130%;
+    margin: 0;
+}
+
+header {
+    background-color: #ccffff;
+    padding: 10px;
+    padding-left: 46px;
+    padding-top: 20px;
+    padding-right: 70px;
+}
+
+section {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+nav {
+    float: right;
+    font-size: 140%;
+}
+
+h3 {
+    color: #33cccc;
+    font-weight:normal;
+    font-size: 200%;
+    margin-bottom: 5px;
+}
+
+form {
+    width: 540px;
+    font-size: 120%;
+    padding: 5px;
+}
+
+.submit { float: right; }
