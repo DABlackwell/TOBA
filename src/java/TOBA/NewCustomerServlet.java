@@ -10,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class NewCustomerServlet extends HttpServlet {
 
@@ -42,33 +43,23 @@ public class NewCustomerServlet extends HttpServlet {
         }
         else {
             message = "";
-            url = "/success.html";
+            
+            // Create temp username & password
+            String userName = (lastName + zipCode);
+            String password = "welcome1";
+            
+            // Get session & set User as an attribute
+            HttpSession session = request.getSession();
+            User user = new User(firstName, lastName, phone, address,
+                city, state, zipCode, email, userName, password);
+            session.setAttribute("user", user);
+            
+            url = "/success.jsp";
         }
         request.setAttribute("message", message);
         
         getServletContext().getRequestDispatcher(url).forward(request, response);
         
-/* Doesn't work (when replacing the "Validates parameters" section above)        
-        // Stores the parameters in an array
-        String[] user = {firstName, lastName, phone, address, city, state,
-            zipCode, email};
-
-        // Validate the parameters; redirect if all fields completed
-        String message;
-        String url = "success.html";
-        for (int i = 0; i < user.length; i++) {
-            if (user[i].isEmpty() || user[i] == null) {
-                message = "Please fill out all text boxes in the form.";
-                url = "new_customer.jsp";
-                request.setAttribute("message", message);
-                getServletContext().getRequestDispatcher(url)
-                        .forward(request, response);
-            }
-            else {
-                response.sendRedirect(url);
-            }
-        }
-*/
     }
 
     @Override // Overrides the doPost method of the HttpServlet class

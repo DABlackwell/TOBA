@@ -9,6 +9,10 @@
         <servlet-class>TOBA.NewCustomerServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>PasswordResetServlet</servlet-name>
+        <servlet-class>TOBA.PasswordResetServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>TransactionServlet</servlet-name>
         <servlet-class>TOBA.TransactionServlet</servlet-class>
     </servlet>
@@ -20,6 +24,10 @@
     <servlet-mapping>
         <servlet-name>NewCustomerServlet</servlet-name>
         <url-pattern>/NewCustomerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PasswordResetServlet</servlet-name>
+        <url-pattern>/PasswordResetServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>TransactionServlet</servlet-name>

@@ -10,7 +10,7 @@ body {
 
 header {
     background-color: #ccffff;
-    padding: 10px;
+    padding-bottom: 10px;
     padding-left: 46px;
     padding-top: 20px;
     padding-right: 70px;
@@ -19,6 +19,14 @@ header {
 section {
     margin-left: 50px;
     margin-right: 50px;
+}
+
+footer {
+    padding: 5px;
+    padding-left: 50px;
+    font-size: 70%;
+    color: #33cccc;
+    background-color: #ccffff;
 }
 
 nav {
@@ -39,4 +47,23 @@ form {
     padding: 5px;
 }
 
+.slabel {
+    float: left;
+    color: #33cccc;
+    width: 7em;
+    margin-left: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+span {
+    margin-left: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+br {
+    clear: both;
+}
+
 .submit { float: right; }
+
+.reset { font-size: 60%; }
