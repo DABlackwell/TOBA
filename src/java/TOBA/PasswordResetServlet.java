@@ -23,6 +23,7 @@ public class PasswordResetServlet extends HttpServlet {
         String password = request.getParameter("password");
         User user = (User) session.getAttribute("user");
         user.setPassword(password);
+        session.setAttribute("user", user);
         
         // If userName & password correct, logs in to account; otherwise, fails
         getServletContext().getRequestDispatcher(

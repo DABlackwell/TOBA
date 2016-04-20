@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class LoginServlet extends HttpServlet {
     
@@ -23,8 +24,12 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
         String url = "";
         
-        // If userName & password correct, logs in to account; otherwise, fails
-        if ("jsmith@toba.com".equals(userName) && "letmein".equals(password))
+        // Gets the session user
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+        
+        // If userName & password match session, logs in; otherwise, fails
+        if (user.getUserName().equals(userName) && user.getPassword().equals(password))
             url = "/account_activity.jsp";
         else
             url = "/login_failure.jsp";
