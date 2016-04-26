@@ -3,10 +3,13 @@
  * 
  */
 
-package TOBA;
+package TOBA.business;
 
 import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity
 public class User implements Serializable { // JavaBean
     private String firstName;
     private String lastName;
@@ -15,7 +18,10 @@ public class User implements Serializable { // JavaBean
     private String city;
     private String state;
     private String zipCode;
+    
+    @Id
     private String email;
+    
     private String userName;
     private String password;
     

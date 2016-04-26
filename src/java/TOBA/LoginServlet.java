@@ -6,6 +6,7 @@
 
 package TOBA;
 
+import TOBA.business.User;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

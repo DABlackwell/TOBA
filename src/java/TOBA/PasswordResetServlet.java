@@ -5,6 +5,8 @@
 
 package TOBA;
 
+import TOBA.business.User;
+import TOBA.data.UserDB;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -24,6 +26,9 @@ public class PasswordResetServlet extends HttpServlet {
         User user = (User) session.getAttribute("user");
         user.setPassword(password);
         session.setAttribute("user", user);
+        
+        // Updates the user in the database
+        UserDB.update(user);
         
         // If userName & password correct, logs in to account; otherwise, fails
         getServletContext().getRequestDispatcher(

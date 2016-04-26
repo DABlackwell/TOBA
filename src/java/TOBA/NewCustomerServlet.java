@@ -5,6 +5,10 @@
 
 package TOBA;
 
+import TOBA.business.Account;
+import TOBA.business.User;
+import TOBA.data.AccountDB;
+import TOBA.data.UserDB;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -53,6 +57,17 @@ public class NewCustomerServlet extends HttpServlet {
             User user = new User(firstName, lastName, phone, address,
                 city, state, zipCode, email, userName, password);
             session.setAttribute("user", user);
+            
+            // Add user to the database
+            UserDB.insert(user);
+            
+            // Open checking ($0) and savings ($25) and add to AccountDB
+            Account savingsAccount = new Account(user, 25.00);
+            savingsAccount.setAccountType("SAVINGS");
+            Account checkingAccount = new Account(user, 0.00);
+            savingsAccount.setAccountType("CHECKING");
+            AccountDB.insert(savingsAccount);
+            AccountDB.insert(checkingAccount);
             
             url = "/success.jsp";
         }
